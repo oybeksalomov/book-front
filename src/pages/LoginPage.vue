@@ -18,13 +18,14 @@ import {mapActions} from "vuex";
 export default {
   name: "LoginPage",
   methods: {
-    ...mapActions(['fetchToken']),
+    ...mapActions(['fetchToken', "fetchCategories"]),
     auth() {
       console.log('Forma yuborildi')
       this
           .fetchToken(this.form)
           .then(() => {
             this.$router.push('/')
+            this.fetchCategories()
           })
     }
   },
