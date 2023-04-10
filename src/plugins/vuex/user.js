@@ -25,11 +25,12 @@ export default {
     },
     mutations: {
         updateToken(state, token) {
+            localStorage.setItem('token', token)
             state.token = token
         }
     },
     state: {
-        token: null
+        token: localStorage.getItem('token')
     },
     getters: {
         getToken(state) {
