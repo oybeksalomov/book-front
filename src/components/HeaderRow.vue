@@ -26,7 +26,7 @@
                   </ul>
                 </li>
                 <li class="nav-item">
-                  <router-link to="/login" class="nav-link">Login</router-link>
+                  <router-link to="/login" class="nav-link">Kirish</router-link>
                 </li>
               </ul>
               <form class="d-flex">

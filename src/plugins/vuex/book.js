@@ -2,10 +2,15 @@ import axios from "@/plugins/vuex/axios";
 
 export default {
     actions: {
-        fetchBooks(context) {
+        fetchBooks(context, categoryId = null) {
+            let categoryUrl = ''
+
+            if (categoryId) {
+                categoryUrl = '?category=' + categoryId
+            }
             return new Promise((resolve, reject) => {
                 axios
-                    .get('http://localhost:8880/api/books')
+                    .get('http://localhost:8880/api/books' + categoryUrl)
                     .then((response) => {
                         console.log('Kitoblar olindi')
                         console.log(response)

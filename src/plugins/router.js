@@ -7,6 +7,14 @@ const routes = [
         component: HomePage,
     },
     {
+        path: '/categories/:id',
+        component: HomePage
+    },
+    {
+        path: '/create',
+
+    },
+    {
         path: '/book-info',
         component: () => import('@/pages/BookInfoPage.vue'),
     },

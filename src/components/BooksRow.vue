@@ -37,7 +37,14 @@ export default {
   mounted() {
     console.log('kitoblar komponenti App\'ga ulandi')
 
-    this.fetchBooks()
+    this.fetchBooks(this.$route.params.id)
+  },
+  watch: {
+    '$route.params.id' () {
+      console.log('this.$route.params.id ' + this.$route.params.id + ' ga o\'zgardi')
+
+      this.fetchBooks(this.$route.params.id)
+    }
   }
 }
 </script>

@@ -5,7 +5,13 @@
         class="list-group"
         v-for="category of getCategories"
         v-bind:key="category.id">
-      <a href="#" class="list-group-item list-group-item-action" aria-current="true">{{category.name}}</a>
+      <router-link
+          :to="'/categories/' + category.id"
+          class="list-group-item list-group-item-action"
+          aria-current="true"
+      >
+        {{category.name}}
+      </router-link>
 
     </div>
   </div>
