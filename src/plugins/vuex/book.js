@@ -29,24 +29,40 @@ export default {
                         reject()
                     })
             })
+        },
+        pushBooks(context, data) {
+            return new Promise((resolve, reject) => {
+                axios
+                    .post('http://localhost:8880/api/books', data)
+                    .then((response) => {
+                        console.log("Kitob MO'ga muvaffaqiyatli qo'shildi")
+                        console.log(response)
+                        resolve()
+                    })
+                    .catch(() => {
+                        console.log("Kitob qo'shishda xatolik bor")
+                        reject()
+                    })
+            })
         }
     },
     mutations: {
         updateBooks(state, books) {
             state.books = books
-        }
+        },
+
     },
     state: {
         books: {
             models: [],
             totalItems: 0,
-        }
+        },
+
     },
     getters: {
         getBooks(state) {
             return state.books.models
-        }
-
-    }
+        },
+    },
 
 }
