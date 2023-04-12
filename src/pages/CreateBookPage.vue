@@ -19,7 +19,7 @@
             :key="category.id"
             :value="'/api/categories/' + category.id"
         >
-          {{ category.name }} 
+          {{ category.name }}
         </option>
       </select>
     </div>

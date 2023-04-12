@@ -44,6 +44,30 @@ export default {
                         reject()
                     })
             })
+        },
+        fetchBook(context, bookId) {
+            return new Promise((resolve, reject) => {
+                axios
+                    .get('http://localhost:8880/api/books/' + bookId)
+                    .then((response) => {
+                        console.log('kitob olindi')
+                        console.log(response)
+
+                        let book = {
+                            id: response.data.id,
+                            name: response.data.name,
+                            description: response.data.description,
+                            text: response.data.text,
+                            category: response.data.category,
+                        }
+                        context.commit('updateBook', book)
+                        resolve()
+                    })
+                    .catch(() => {
+                        console.log('kitob olishda xatolik chiqdi')
+                        reject()
+                    })
+            })
         }
     },
     mutations: {
@@ -51,6 +75,9 @@ export default {
             state.books = books
         },
 
+        updateBook(state, book) {
+            state.book = book
+        }
     },
     state: {
         books: {
@@ -58,11 +85,22 @@ export default {
             totalItems: 0,
         },
 
+        book: {
+            id: null,
+            name: null,
+            description: null,
+            text: null,
+            category: null,
+        }
     },
     getters: {
         getBooks(state) {
             return state.books.models
         },
+
+        getBook(state) {
+            return state.book
+        }
     },
 
 }
