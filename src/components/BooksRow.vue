@@ -6,9 +6,10 @@
     <div
         v-for="book of getBooks"
         v-bind:key="book.id"
+
         class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-4">
       <div class="card">
-        <img src="/img/harry-potter.jpg" class="card-img-top" alt="book picture">
+        <img :src="'http://localhost:8880' + book.picture.contentUrl" class="card-img-top bookImage" alt="book picture">
         <div class="card-body">
           <h5 class="card-title">{{book.name}}</h5>
           <p class="card-text">{{book.description}}</p>
@@ -36,8 +37,8 @@ export default {
   },
   mounted() {
     console.log('kitoblar komponenti App\'ga ulandi')
-
     this.fetchBooks(this.$route.params.id)
+
   },
   watch: {
     '$route.params.id' () {
@@ -50,5 +51,7 @@ export default {
 </script>
 
 <style scoped>
-
+.bookImage {
+  height: 400px;
+}
 </style>

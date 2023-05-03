@@ -3,7 +3,7 @@
   <div class="row mt-3">
     <div class="col">
       <footer class="bg-dark text-light p-5">
-        &copy; All rights reserved
+        &copy; All rights reserved {{foo}} - {{bar}}
       </footer>
     </div>
   </div>
@@ -12,7 +12,17 @@
 
 <script>
 export default {
-  name: "FooterRow"
+  name: "FooterRow",
+  props: {
+    foo: {
+      type: String,
+      required: true,
+    },
+    bar: {
+      type: Number,
+      default: 30,
+    }
+  }
 }
 </script>
 

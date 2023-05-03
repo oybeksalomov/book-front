@@ -18,7 +18,7 @@
     </div>
     <!-- main qatori tugadi -->
 
-    <FooterRow/>
+    <FooterRow foo="Salomov" bar="22"/>
 
   </div>
   <!-- container tugadi -->

@@ -59,6 +59,7 @@ export default {
                             description: response.data.description,
                             text: response.data.text,
                             category: response.data.category,
+                            picture: response.data.picture
                         }
                         context.commit('updateBook', book)
                         resolve()
@@ -91,6 +92,7 @@ export default {
             description: null,
             text: null,
             category: null,
+            picture: null
         }
     },
     getters: {
